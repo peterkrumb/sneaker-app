@@ -16,4 +16,11 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+Route.get('/', 'SneakerController.index')
+Route.get('/sneakers', 'SneakerController.index')
+Route.get('/sneakers/create', 'SneakerController.create')
+Route.post('/sneakers', 'SneakerController.store')
+Route.get('/sneakers/:id', 'SneakerController.show')
+Route.get('/sneakers/:id/edit', 'SneakerController.edit')
+Route.put('/sneakers/', 'SneakerController.update')
+Route.delete('/sneakers/', 'SneakerController.destroy')
