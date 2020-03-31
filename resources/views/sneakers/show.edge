@@ -8,9 +8,9 @@ Show 1 Sneaker Page
 @section('content')
 <div class="show-page">
     <div class="img">
-        <h2>Yeezy Boost</h2>
-        <img src="https://stockx.imgix.net/adidas-Yeezy-Boost-350-V2-Yecheil-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&dpr=2&trim=color&updated_at=1574449122" alt="">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum maiores, voluptatem asperiores molestiae nisi expedita, dolores illum aspernatur, eveniet quis nihil repellendus magni corporis commodi aliquam. Eum dicta officia quam!</p>
+        <h2>{{sneaker.title}}</h2>
+        <img src="{{sneaker.image}}" alt="">
+        <p>{{sneaker.description}}</p>
     </div>
 </div>
 @endsection
