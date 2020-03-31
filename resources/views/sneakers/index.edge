@@ -1,4 +1,11 @@
-<h1>Show all Sneakers Page</h1>
+@layout('layouts/app')
+
+@section('title')
+Show all Sneakers Page
+@endsection
+
+@section('content')
+  <h1>Show all Sneakers Page</h1>
 <div class="links">
     <nav>
         <a href="/sneakers/create" class="add">Add a Sneaker</a>
@@ -14,10 +21,16 @@
         </tr>
     </thead>
     <tbody>
+        @each(sneaker in allSneakers)
         <tr>
-            <td>id</td>
-            <td>title</td>
-            <td>actions</td>
+            <td>{{sneaker.id}}</td>
+            <td>{{sneaker.title}}</td>
+        <td>
+            <a href="/sneakers/{{sneaker.id}}/edit">Edit</a>
+            <a href="/sneakers/{{sneaker.id}}/delete">Delete</a>
+        </td>
         </tr>
+        @endeach
     </tbody>
 </table>
+@endsection

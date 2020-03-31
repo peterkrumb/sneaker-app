@@ -1,14 +1,36 @@
 'use strict'
+const Sneaker = use('App/Models/Sneaker')
 
 class SneakerController {
     async index({view}){
-        return view.render('sneakers/index')
+        let allSneakers = await Sneaker.all()
+        allSneakers = allSneakers.toJSON()
+        let viewData = {
+            allSneakers
+        }
+        console.log(viewData);
+        
+        return view.render('sneakers/index', viewData)
     }
     async create({view}){
         return view.render('sneakers/create')
     }
-    async store(){
-        return "save 1 sneaker"
+    async store({request, response}){
+        try{
+
+            const sneaker = new Sneaker()
+            const data = request.post()
+    
+            sneaker.title = data.title
+            sneaker.image = data.image
+            sneaker.description = data.description
+    
+            await sneaker.save()
+            return response.redirect('/')
+        } catch (error) {
+            console.log(error);
+            return 'Sorry there was an error check console'
+        }
     }
     async show({view}){
         return view.render('sneakers/show')

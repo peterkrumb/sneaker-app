@@ -1,5 +1,13 @@
+@layout('layouts/app')
+@section('title')
+Create a Sneaker Page
+@endsection
+
+
+@section('content')
 <h1>Create a Sneaker Page</h1>
 <form action="/sneakers" method="POST">
+    {{ csrfField() }}
     <div class="form-group">
         <label for="">Title</label>
         <input type="text" name="title">
@@ -16,3 +24,4 @@
         <input type="submit" value="save">
     </div>
 </form>
+@endsection

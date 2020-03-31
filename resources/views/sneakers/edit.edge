@@ -1,3 +1,11 @@
+@layout('layouts/app')
+
+@section('title')
+Edit 1 Sneaker Page
+@endsection
+
+
+@section('content')
 <h1>Edit 1 Sneaker Page</h1>
 <form action="/sneakers? method=PUT" method="POST">
     <div class="form-group">
@@ -16,3 +24,4 @@
         <input type="submit" value="save">
     </div>
 </form>
+@endsection
